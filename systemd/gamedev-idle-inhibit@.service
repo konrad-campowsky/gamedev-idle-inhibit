@@ -1,0 +1,10 @@
+[Unit]
+Description=Inhibit idle state while /dev/input/%I is connected
+BindsTo=dev-input-%i.device
+PartOf=dev-input-%i.device
+After=dev-input-%i.device
+ConditionPathExists=/dev/input/%i
+
+[Service]
+ExecStart=idle-inhibit /dev/input/%I
+Restart=on-failure
