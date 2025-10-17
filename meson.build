@@ -10,8 +10,10 @@ project('idle-inhibit', 'c',
   meson_version: '>=0.56.0',
 )
 
-systemd_system_unit_dir = dependency('systemd').get_variable(pkgconfig: 'systemd_system_unit_dir', 
-                                                             default_value: join_paths(get_option('prefix'), 'lib', 'systemd', 'system'))
+systemd_system_unit_dir = get_option('systemd_system_unit_dir') != '' ? \
+    get_option('systemd_system_unit_dir') : \
+    (dependency(systemd).get_variable(pkgconfig: 'systemdsystemunitdir',
+                                      default_value: join_paths(get_option('prefix'), 'lib', 'systemd', 'system')))
 install_data('systemd/gamedev-idle-inhibit@.service', install_dir: systemd_system_unit_dir)
 
 udev_base_dir = dependency('udev').get_variable(pkgconfig: 'udev_dir', 
