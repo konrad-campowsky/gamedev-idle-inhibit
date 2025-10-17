@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
         siginfo_t info;
         if ((sig = sigwaitinfo(&set, &info)) < 0) {
             if (errno == EINTR) 
-	        continue;
+                continue;
             perror("sigwaitinfo");
             break;
         }
