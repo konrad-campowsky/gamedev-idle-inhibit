@@ -1,1 +1,1 @@
-ACTION=="add", SUBSYSTEM=="input", ENV{ID_INPUT_JOYSTICK}=="1", TAG+="systemd", KERNEL=="event*", ENV{SYSTEMD_WANTS}+="idle-inhibit@%k.service"
+ACTION=="add", SUBSYSTEM=="input", ENV{ID_INPUT_JOYSTICK}=="1", TAG+="systemd", KERNEL=="event*", ENV{SYSTEMD_WANTS}+="gamedev-idle-inhibit@%k.service"
