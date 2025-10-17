@@ -66,6 +66,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    printf("Inhibiting idle state because of %s\n", why);
+
     if ((fd = acquire_inhibitor_lock(why)) < 0) {
         return 1;
     }
