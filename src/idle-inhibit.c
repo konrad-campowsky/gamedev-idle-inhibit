@@ -55,7 +55,7 @@ static int acquire_inhibitor_lock(const char *why) {
 int main(int argc, char* argv[]) {
     int fd, sig;
     sigset_t set;
-    const char *why = argc > 1 && argv[1][0] ? argv[1] : "<unknown>";
+    const char *why = argc > 1 && argv[1][0] ? argv[1] : "Unknown reason";
 
     sigemptyset(&set);
     sigaddset(&set, SIGINT);

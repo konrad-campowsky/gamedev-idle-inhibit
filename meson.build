@@ -1,6 +1,6 @@
 project('idle-inhibit', 'c',
-  version: '0.1.0',
-  license: 'GPL-2.0-or-later',
+  version: '1.0.0',
+  license: 'MIT',
   default_options: [
     'c_std=c11',
     'optimization=2',
@@ -22,6 +22,12 @@ install_data('udev/95-gamedev-idle-inhibit.rules', install_dir: udev_rules_dir)
 
 sources = files(
   'src/idle-inhibit.c',
+)
+
+cc = meson.get_compiler('c') 
+add_project_arguments( 
+  cc.get_supported_arguments(['-fwhole-program']), 
+  language: 'c'
 )
 
 executable('idle-inhibit',
