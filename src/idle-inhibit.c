@@ -28,7 +28,7 @@ static int acquire_inhibitor_lock(const char *why) {
         &msg,
         "ssss",                    // 4 strings:
         "idle",                    // what
-        "gamepad-monitor",         // who
+        "gamedev-monitor",         // who
          why,                      // why
         "block"                    // mode
     );
